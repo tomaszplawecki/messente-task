@@ -1,0 +1,16 @@
+dist: trusty
+
+language: node_js
+node_js:
+  - 12
+
+addons:
+  chrome: stable
+
+install:
+  - npm ci
+  - mv src/environments/environment.travis.ts src/environments/environment.ts
+
+script:
+  - npm run test-headless
+  - npm run lint
