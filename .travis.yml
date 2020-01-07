@@ -9,7 +9,6 @@ addons:
 
 install:
   - npm ci
-  - mv src/environments/environment.travis.ts src/environments/environment.ts
 
 script:
   - npm run test-headless
