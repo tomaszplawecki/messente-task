@@ -1,0 +1,198 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.onboarding-box {
+  max-width: 1152px;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(42, 42, 46, 0.15);
+  margin: 20px auto;
+  background: $white;
+  padding: rem(16) rem(20) rem(16);
+  display: flex;
+  flex-wrap: wrap;
+
+  @include min-md {
+    padding: rem(16) rem(20) rem(70);
+  }
+
+  @include min-lg {
+    flex-wrap: nowrap;
+  }
+
+  h1 {
+    font-weight: 500;
+    font-size: rem(24);
+    line-height: rem(32);
+    color: $main-dark;
+  }
+
+  p {
+    font-size: rem(14);
+    line-height: rem(20);
+    margin: 0;
+  }
+
+  .left-col {
+
+    @include min-md {
+      max-width: 250px;
+      margin-right: 120px;
+    }
+  }
+
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include min-md {
+      flex-wrap: nowrap;
+    }
+
+    > div {
+      min-width: 100%;
+      margin-top: rem(15);
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      @include min-md {
+        min-width: 190px;
+        margin-top: rem(35);
+        display: block;
+      }
+
+      .circle {
+        border: 2px solid $light-grey;
+        background: $white;
+        box-sizing: border-box;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        position: relative;
+
+        @include min-md {
+          margin-bottom: rem(13);
+          margin-right: 0;
+        }
+
+        span {
+          color: $light-grey;
+          font-size: rem(14);
+          line-height: rem(20);
+          font-weight: 500;
+        }
+      }
+
+      p {
+        color: $medium-grey;
+        font-size: rem(14);
+        line-height: rem(20);
+        font-weight: 500;
+      }
+
+      &:before {
+        display: none;
+        content: ' ';
+        height: 2px;
+        width: 190px;
+        position: absolute;
+        top: 14px;
+        left: 32px;
+        background: $light-grey;
+
+        @include min-md {
+          display: block;
+        }
+      }
+
+      &:last-of-type:before {
+        width: 0;
+      }
+
+      .arrow {
+        position: relative;
+        margin-left: 5px;
+        top: 5px;
+        display: none;
+
+        .arrow-1 {
+          display: inline-block;
+          width: 10px;
+          height: 1px;
+          background: $blue-brand;
+          position: absolute;
+          top: 3px;
+        }
+
+        .arrow-2 {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-left: 1px solid $blue-brand;
+          border-top: 1px solid $blue-brand;
+          transform: rotate(135deg);
+          position: absolute;
+          left: 3px;
+          top: -1px;
+        }
+      }
+
+      .finish-icon {
+        display: none;
+        height: 10px;
+        width: 25px;
+        border-left: 2px solid $blue-brand;
+        border-bottom: 2px solid $blue-brand;
+        transform: rotate(315deg);
+        position: absolute;
+        left: 8px;
+        top: 2px;
+        background: white;
+      }
+
+
+      &.in-progress {
+
+        .circle {
+          border-color: $blue-brand;
+          box-shadow: 0px 0px 4px rgba(3, 169, 244, 0.7);
+
+          span {
+            color: $blue-brand;
+          }
+        }
+
+        .arrow {
+          display: inline-block;
+        }
+
+        p {
+          color: $blue-brand;
+        }
+      }
+
+      &.done {
+
+        .arrow {
+          display: none;
+        }
+
+        .circle {
+
+          span {
+            display: none;
+          }
+
+          .finish-icon {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

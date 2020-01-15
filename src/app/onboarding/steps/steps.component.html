@@ -1,0 +1,52 @@
+<div class="onboarding-box">
+  <div class="left-col">
+    <h1 i18n="@@onboardingBox.welcomeText">Welcome to Messente</h1>
+    <p i18n="@@onboardingBox.description">To send unlimited amount of messages, please follow these steps.</p>
+  </div>
+  <div class="right-col steps" *ngIf="(steps$ | async) as steps">
+    <div class="step first-step in-progress"
+         [class.done]="steps.hasCreatedSenderName">
+      <div class="circle">
+        <span>1</span>
+        <div class="finish-icon"></div>
+      </div>
+      <div class="d-flex">
+        <p i18n="@@onboardingBox.step1">Create sender name</p>
+        <div class="arrow">
+          <span class="arrow-1"></span>
+          <span class="arrow-2"></span>
+        </div>
+      </div>
+    </div>
+    <div class="step second-step"
+         [class.in-progress]="steps.hasCreatedSenderName"
+         [class.done]="steps.hasAddedCompanyInfo">
+      <div class="circle">
+        <span>2</span>
+        <div class="finish-icon"></div>
+      </div>
+      <div class="d-flex">
+        <p i18n="@@onboardingBox.step2">Add company info</p>
+        <div class="arrow">
+          <span class="arrow-1"></span>
+          <span class="arrow-2"></span>
+        </div>
+      </div>
+    </div>
+    <div class="step third-step"
+         [class.in-progress]="steps.hasAddedCompanyInfo"
+         [class.done]="steps.accountFullyOperational">
+      <div class="circle">
+        <span>3</span>
+        <div class="finish-icon"></div>
+      </div>
+      <div class="d-flex">
+        <p i18n="@@onboardingBox.step3">Verify email</p>
+        <div class="arrow">
+          <span class="arrow-1"></span>
+          <span class="arrow-2"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

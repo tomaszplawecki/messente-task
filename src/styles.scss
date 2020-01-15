@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "styles/variables";
+@import "styles/mixins";
+
+html, body {
+  margin: 0 20px;
+  padding: 0;
+  background: $grey;
+  font-size: 16px;
+  font-family: Neue Haas Unica W1G;
+}

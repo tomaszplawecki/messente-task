@@ -12,10 +12,13 @@ import { AppEffects } from '@app/app.effects';
 import { environment } from '@env/environment';
 import { entityConfig } from '@app/entity-metadata';
 import { MockStepsApi } from '@app/mock-server/mock-steps-api';
+import { StepsComponent } from './onboarding/steps/steps.component';
+import { StepsEffects } from '@app/effects/steps.effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StepsComponent,
   ],
   imports: [
     // Angular modules
@@ -31,7 +34,7 @@ import { MockStepsApi } from '@app/mock-server/mock-steps-api';
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([AppEffects]),
+    EffectsModule.forRoot([AppEffects, StepsEffects]),
     EntityDataModule.forRoot(entityConfig),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
